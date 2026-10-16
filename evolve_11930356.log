@@ -1,0 +1,15 @@
+Traceback (most recent call last):
+  File "/scratch/gilbreth/flermama/capx/uv_python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/scratch/gilbreth/flermama/capx/uv_python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/scratch/gilbreth/flermama/biomedical-tasks/biolab/evolve/__main__.py", line 79, in <module>
+    main()
+  File "/scratch/gilbreth/flermama/biomedical-tasks/biolab/evolve/__main__.py", line 73, in main
+    rounds = practice(cfg, llm)
+  File "/scratch/gilbreth/flermama/biomedical-tasks/biolab/evolve/loop.py", line 138, in practice
+    modules = load_modules(cfg)
+  File "/scratch/gilbreth/flermama/biomedical-tasks/biolab/evolve/loop.py", line 67, in load_modules
+    raise FileNotFoundError(f"module {name}: no skills.py in {folder}")
+FileNotFoundError: module handover: no skills.py in /scratch/gilbreth/flermama/biolab_runs/haiku_stage_handover/library
+exit code: 1  run folder: /scratch/gilbreth/flermama/biolab_runs/haiku_stage_full

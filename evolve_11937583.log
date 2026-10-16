@@ -1,0 +1,73 @@
+model call: 2011 tokens in, 7019 out, cost 0.0038
+round 0: 0/12 practice layouts, partial credit 0.00
+model call: 7150 tokens in, 4612 out, cost 0.0032
+Exception ignored in: <function Renderer.__del__ at 0x14b8729eda20>
+Traceback (most recent call last):
+  File "/scratch/gilbreth/flermama/capx/cap-x/.venv/lib/python3.10/site-packages/mujoco/renderer.py", line 340, in __del__
+Exception ignored in: <function Renderer.__del__ at 0x14d07b479a20>
+Traceback (most recent call last):
+  File "/scratch/gilbreth/flermama/capx/cap-x/.venv/lib/python3.10/site-packages/mujoco/renderer.py", line 340, in __del__
+round 1: 0/12 practice layouts, partial credit 0.10
+model call: 20838 tokens in, 5564 out, cost 0.0054
+round 2: 0/12 practice layouts, partial credit 0.18
+model call: 21247 tokens in, 6737 out, cost 0.0060
+round 3: 0/12 practice layouts, partial credit 0.07  (not kept)
+model call: 34120 tokens in, 4923 out, cost 0.0067
+Exception ignored in: <function Renderer.__del__ at 0x145b07941a20>
+Traceback (most recent call last):
+  File "/scratch/gilbreth/flermama/capx/cap-x/.venv/lib/python3.10/site-packages/mujoco/renderer.py", line 340, in __del__
+round 4: 0/12 practice layouts, partial credit 0.10  (not kept)
+model call: 10536 tokens in, 3614 out, cost 0.0031
+round 5: 3/12 practice layouts, partial credit 0.73
+model call: 22241 tokens in, 4976 out, cost 0.0053
+round 6: 0/12 practice layouts, partial credit 0.36  (not kept)
+model call: 25120 tokens in, 6819 out, cost 0.0065
+round 7: 0/12 practice layouts, partial credit 0.29  (not kept)
+model call: 33052 tokens in, 5297 out, cost 0.0068
+round 8: 0/12 practice layouts, partial credit 0.10  (not kept)
+model call: 8888 tokens in, 4315 out, cost 0.0033
+round 9: 0/12 practice layouts, partial credit 0.10  (not kept)
+model call: 12375 tokens in, 5003 out, cost 0.0040
+round 10: 0/12 practice layouts, partial credit 0.10  (not kept)
+model call: 13844 tokens in, 4591 out, cost 0.0040
+Exception ignored in: <function Renderer.__del__ at 0x154d8ce35a20>
+Traceback (most recent call last):
+  File "/scratch/gilbreth/flermama/capx/cap-x/.venv/lib/python3.10/site-packages/mujoco/renderer.py", line 340, in __del__
+Exception ignored in: <function Renderer.__del__ at 0x14c2854a1a20>
+Traceback (most recent call last):
+  File "/scratch/gilbreth/flermama/capx/cap-x/.venv/lib/python3.10/site-packages/mujoco/renderer.py", line 340, in __del__
+Exception ignored in: <function Renderer.__del__ at 0x15081034da20>
+Traceback (most recent call last):
+  File "/scratch/gilbreth/flermama/capx/cap-x/.venv/lib/python3.10/site-packages/mujoco/renderer.py", line 340, in __del__
+Exception ignored in: <function Renderer.__del__ at 0x14bbd9bf9a20>
+Exception ignored in: <function Renderer.__del__ at 0x151b0830da20>
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/scratch/gilbreth/flermama/capx/cap-x/.venv/lib/python3.10/site-packages/mujoco/renderer.py", line 340, in __del__
+  File "/scratch/gilbreth/flermama/capx/cap-x/.venv/lib/python3.10/site-packages/mujoco/renderer.py", line 340, in __del__
+round 11: 0/12 practice layouts, partial credit 0.10  (not kept)
+
+TEST: 5/20 held-out layouts
+run: /scratch/gilbreth/flermama/biolab_runs/luna_seq_pour
+task: weigh_pour
+model: gpt-6-luna
+mode: library loop
+
+round 0: 0/12  partial credit 0.00  kept
+round 1: 0/12  partial credit 0.10  kept
+round 2: 0/12  partial credit 0.18  kept
+round 3: 0/12  partial credit 0.07
+round 4: 0/12  partial credit 0.10
+round 5: 3/12  partial credit 0.73  kept
+round 6: 0/12  partial credit 0.36
+round 7: 0/12  partial credit 0.29
+round 8: 0/12  partial credit 0.10
+round 9: 0/12  partial credit 0.10
+round 10: 0/12  partial credit 0.10
+round 11: 0/12  partial credit 0.10
+
+model calls: 12
+test: 5/20 held-out layouts
+failed checks on test: reading_in_tolerance x15
+
+exit code: 0  run folder: /scratch/gilbreth/flermama/biolab_runs/luna_seq_pour

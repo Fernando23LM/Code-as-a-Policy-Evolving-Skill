@@ -1,0 +1,59 @@
+round 0: 0/12 practice layouts, partial credit 0.10
+round 1: 0/12 practice layouts, partial credit 0.17
+round 2: 0/12 practice layouts, partial credit 0.10  (not kept)
+round 3: 4/12 practice layouts, partial credit 0.52
+round 4: 1/12 practice layouts, partial credit 0.17  (not kept)
+Exception ignored in: <function Renderer.__del__ at 0x14ee5572d990>
+Traceback (most recent call last):
+  File "/scratch/gilbreth/flermama/capx/cap-x/.venv/lib/python3.10/site-packages/mujoco/renderer.py", line 340, in __del__
+Exception ignored in: <function Renderer.__del__ at 0x153ed7235990>
+Traceback (most recent call last):
+  File "/scratch/gilbreth/flermama/capx/cap-x/.venv/lib/python3.10/site-packages/mujoco/renderer.py", line 340, in __del__
+round 5: 1/12 practice layouts, partial credit 0.17  (not kept)
+Exception ignored in: <function Renderer.__del__ at 0x14bb18ca5990>
+round 6: 0/12 practice layouts, partial credit 0.10  (not kept)
+round 7: 0/12 practice layouts, partial credit 0.13  (not kept)
+round 8: 0/12 practice layouts, partial credit 0.10  (not kept)
+Exception ignored in: <function Renderer.__del__ at 0x150737409990>
+Traceback (most recent call last):
+  File "/scratch/gilbreth/flermama/capx/cap-x/.venv/lib/python3.10/site-packages/mujoco/renderer.py", line 340, in __del__
+Exception ignored in: <function Renderer.__del__ at 0x145d28121990>
+Traceback (most recent call last):
+  File "/scratch/gilbreth/flermama/capx/cap-x/.venv/lib/python3.10/site-packages/mujoco/renderer.py", line 340, in __del__
+Exception ignored in: <function Renderer.__del__ at 0x154046fbd990>
+Traceback (most recent call last):
+  File "/scratch/gilbreth/flermama/capx/cap-x/.venv/lib/python3.10/site-packages/mujoco/renderer.py", line 340, in __del__
+round 9: 0/12 practice layouts, partial credit 0.12  (not kept)
+round 10: 4/12 practice layouts, partial credit 0.52
+Exception ignored in: <function Renderer.__del__ at 0x14c35df3d990>
+Traceback (most recent call last):
+  File "/scratch/gilbreth/flermama/capx/cap-x/.venv/lib/python3.10/site-packages/mujoco/renderer.py", line 340, in __del__
+Exception ignored in: <function Renderer.__del__ at 0x14678c6c1990>
+Traceback (most recent call last):
+  File "/scratch/gilbreth/flermama/capx/cap-x/.venv/lib/python3.10/site-packages/mujoco/renderer.py", line 340, in __del__
+round 11: 0/12 practice layouts, partial credit 0.14  (not kept)
+
+TEST: 3/20 held-out layouts
+run: /scratch/gilbreth/flermama/biolab_runs/haiku_weigh_rep_3
+task: weigh_salt
+model: claude-haiku-5.5
+mode: library loop, inherited /scratch/gilbreth/flermama/biolab_runs/luna_loop/library
+
+round 0: 0/12  partial credit 0.10  kept
+round 1: 0/12  partial credit 0.17  kept
+round 2: 0/12  partial credit 0.10
+round 3: 4/12  partial credit 0.52  kept
+round 4: 1/12  partial credit 0.17
+round 5: 1/12  partial credit 0.17
+round 6: 0/12  partial credit 0.10
+round 7: 0/12  partial credit 0.13
+round 8: 0/12  partial credit 0.10
+round 9: 0/12  partial credit 0.12
+round 10: 4/12  partial credit 0.52  kept
+round 11: 0/12  partial credit 0.14
+
+model calls: 12
+test: 3/20 held-out layouts
+failed checks on test: reading_in_tolerance x17
+
+exit code: 0  run folder: /scratch/gilbreth/flermama/biolab_runs/haiku_weigh_rep_3

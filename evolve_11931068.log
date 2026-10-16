@@ -1,0 +1,37 @@
+round 0: 0/12 practice layouts, partial credit 0.00  (not kept)  [skills block has a syntax error on line 75: invalid syntax]
+round 1: 0/12 practice layouts, partial credit 0.03
+round 2: 0/12 practice layouts, partial credit 0.03
+round 3: 0/12 practice layouts, partial credit 0.03
+round 4: 0/12 practice layouts, partial credit 0.05
+round 5: 0/12 practice layouts, partial credit 0.04  (not kept)
+round 6: 0/12 practice layouts, partial credit 0.02  (not kept)
+round 7: 0/12 practice layouts, partial credit 0.00  (not kept)
+round 8: 0/12 practice layouts, partial credit 0.03  (not kept)
+round 9: 0/12 practice layouts, partial credit 0.04  (not kept)
+round 10: 0/12 practice layouts, partial credit 0.01  (not kept)
+round 11: 0/12 practice layouts, partial credit 0.02  (not kept)
+
+TEST: 0/20 held-out layouts
+run: /scratch/gilbreth/flermama/biolab_runs/haiku_seq_pour_2
+task: weigh_pour
+model: claude-haiku-5.5
+mode: library loop
+
+round 0: 0/12  partial credit 0.00
+round 1: 0/12  partial credit 0.03  kept
+round 2: 0/12  partial credit 0.03  kept
+round 3: 0/12  partial credit 0.03  kept
+round 4: 0/12  partial credit 0.05  kept
+round 5: 0/12  partial credit 0.04
+round 6: 0/12  partial credit 0.02
+round 7: 0/12  partial credit 0.00
+round 8: 0/12  partial credit 0.03
+round 9: 0/12  partial credit 0.04
+round 10: 0/12  partial credit 0.01
+round 11: 0/12  partial credit 0.02
+
+model calls: 12
+test: 0/20 held-out layouts
+failed checks on test: reading_in_tolerance x20
+
+exit code: 0  run folder: /scratch/gilbreth/flermama/biolab_runs/haiku_seq_pour_2

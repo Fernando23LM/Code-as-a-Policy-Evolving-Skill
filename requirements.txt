@@ -1,0 +1,4 @@
+mujoco==3.15.0
+numpy
+pillow
+pytest

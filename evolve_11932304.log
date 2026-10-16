@@ -1,0 +1,49 @@
+model call: 2160 tokens in, 4872 out, cost 0.0093
+round 0: 0/12 practice layouts, partial credit 0.00
+model call: 6022 tokens in, 5276 out, cost 0.0108
+round 1: 0/12 practice layouts, partial credit 0.05
+model call: 9705 tokens in, 5998 out, cost 0.0131
+round 2: 0/12 practice layouts, partial credit 0.00  (not kept)
+model call: 5654 tokens in, 6284 out, cost 0.0127
+round 3: 0/12 practice layouts, partial credit 0.10
+model call: 8127 tokens in, 6590 out, cost 0.0138
+round 4: 0/12 practice layouts, partial credit 0.00  (not kept)
+model call: 6915 tokens in, 6279 out, cost 0.0130
+round 5: 0/12 practice layouts, partial credit 0.00  (not kept)
+model call: 6569 tokens in, 6229 out, cost 0.0128
+round 6: 0/12 practice layouts, partial credit 0.00  (not kept)
+model call: 6808 tokens in, 5938 out, cost 0.0123
+round 7: 0/12 practice layouts, partial credit 0.10
+model call: 6645 tokens in, 6657 out, cost 0.0136
+round 8: 0/12 practice layouts, partial credit 0.00  (not kept)
+model call: 6547 tokens in, 6783 out, cost 0.0138
+round 9: 0/12 practice layouts, partial credit 0.00  (not kept)
+model call: 6818 tokens in, 6593 out, cost 0.0135
+round 10: 0/12 practice layouts, partial credit 0.00  (not kept)
+model call: 6670 tokens in, 6306 out, cost 0.0130
+round 11: 0/12 practice layouts, partial credit 0.10
+
+TEST: 0/20 held-out layouts
+run: /scratch/gilbreth/flermama/biolab_runs/qwen_seq_pour
+task: weigh_pour
+model: qwen3.8-27b
+mode: library loop
+
+round 0: 0/12  partial credit 0.00  kept
+round 1: 0/12  partial credit 0.05  kept
+round 2: 0/12  partial credit 0.00
+round 3: 0/12  partial credit 0.10  kept
+round 4: 0/12  partial credit 0.00
+round 5: 0/12  partial credit 0.00
+round 6: 0/12  partial credit 0.00
+round 7: 0/12  partial credit 0.10  kept
+round 8: 0/12  partial credit 0.00
+round 9: 0/12  partial credit 0.00
+round 10: 0/12  partial credit 0.00
+round 11: 0/12  partial credit 0.10  kept
+
+model calls: 12
+test: 0/20 held-out layouts
+failed checks on test: at_rest x19, pan_clear x20, reading_in_tolerance x20
+
+exit code: 0  run folder: /scratch/gilbreth/flermama/biolab_runs/qwen_seq_pour

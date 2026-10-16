@@ -1,0 +1,48 @@
+round 0: 0/12 practice layouts, partial credit 0.10
+round 1: 0/12 practice layouts, partial credit 0.10
+round 2: 0/12 practice layouts, partial credit 0.10
+round 3: 0/12 practice layouts, partial credit 0.10
+round 4: 0/12 practice layouts, partial credit 0.10
+round 5: 0/12 practice layouts, partial credit 0.10
+Exception ignored in: <function Renderer.__del__ at 0x14a71c259990>
+Traceback (most recent call last):
+  File "/scratch/gilbreth/flermama/capx/cap-x/.venv/lib/python3.10/site-packages/mujoco/renderer.py", line 340, in __del__
+Exception ignored in: <function Renderer.__del__ at 0x15059ba45990>
+Traceback (most recent call last):
+  File "/scratch/gilbreth/flermama/capx/cap-x/.venv/lib/python3.10/site-packages/mujoco/renderer.py", line 340, in __del__
+Exception ignored in: <function Renderer.__del__ at 0x14f7c46e5990>
+Traceback (most recent call last):
+  File "/scratch/gilbreth/flermama/capx/cap-x/.venv/lib/python3.10/site-packages/mujoco/renderer.py", line 340, in __del__
+round 6: 0/12 practice layouts, partial credit 0.10
+round 7: 0/12 practice layouts, partial credit 0.10
+round 8: 0/12 practice layouts, partial credit 0.10
+round 9: 2/12 practice layouts, partial credit 0.39
+Exception ignored in: <function Renderer.__del__ at 0x1483068dd990>
+Traceback (most recent call last):
+round 10: 0/12 practice layouts, partial credit 0.09  (not kept)
+round 11: 0/12 practice layouts, partial credit 0.10  (not kept)
+
+TEST: 1/20 held-out layouts
+run: /scratch/gilbreth/flermama/biolab_runs/luna_weigh_cmp_hints_3
+task: weigh_salt
+model: gpt-6-luna
+mode: library loop, inherited /scratch/gilbreth/flermama/biolab_runs/luna_loop/library
+
+round 0: 0/12  partial credit 0.10  kept
+round 1: 0/12  partial credit 0.10  kept
+round 2: 0/12  partial credit 0.10  kept
+round 3: 0/12  partial credit 0.10  kept
+round 4: 0/12  partial credit 0.10  kept
+round 5: 0/12  partial credit 0.10  kept
+round 6: 0/12  partial credit 0.10  kept
+round 7: 0/12  partial credit 0.10  kept
+round 8: 0/12  partial credit 0.10  kept
+round 9: 2/12  partial credit 0.39  kept
+round 10: 0/12  partial credit 0.09
+round 11: 0/12  partial credit 0.10
+
+model calls: 12
+test: 1/20 held-out layouts
+failed checks on test: at_rest x5, pan_clear x8, reading_in_tolerance x19
+
+exit code: 0  run folder: /scratch/gilbreth/flermama/biolab_runs/luna_weigh_cmp_hints_3

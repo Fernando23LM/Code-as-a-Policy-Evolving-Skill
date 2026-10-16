@@ -1,0 +1,28 @@
+round 0: 0/12 practice layouts, partial credit 0.00
+round 1: 12/12 practice layouts, partial credit 1.00
+round 2: 12/12 practice layouts, partial credit 1.00
+round 3: 12/12 practice layouts, partial credit 1.00
+round 4: 12/12 practice layouts, partial credit 1.00
+round 5: 12/12 practice layouts, partial credit 1.00
+round 6: 12/12 practice layouts, partial credit 1.00
+round 7: 12/12 practice layouts, partial credit 1.00
+
+TEST: 20/20 held-out layouts
+run: /scratch/gilbreth/flermama/biolab_runs/haiku_seq_handover
+task: weigh_handover
+model: claude-haiku-5.5
+mode: library loop
+
+round 0: 0/12  partial credit 0.00  kept
+round 1: 12/12  partial credit 1.00  kept
+round 2: 12/12  partial credit 1.00  kept
+round 3: 12/12  partial credit 1.00  kept
+round 4: 12/12  partial credit 1.00  kept
+round 5: 12/12  partial credit 1.00  kept
+round 6: 12/12  partial credit 1.00  kept
+round 7: 12/12  partial credit 1.00  kept
+
+model calls: 8
+test: 20/20 held-out layouts
+
+exit code: 0  run folder: /scratch/gilbreth/flermama/biolab_runs/haiku_seq_handover

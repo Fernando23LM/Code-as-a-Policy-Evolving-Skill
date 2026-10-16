@@ -1,0 +1,13 @@
+
+TEST: 4/20 held-out layouts
+run: /scratch/gilbreth/flermama/biolab_runs/haiku_seq_composed_3
+task: weigh_salt
+model: composition of /scratch/gilbreth/flermama/biolab_runs/haiku_seq_handover/library, /scratch/gilbreth/flermama/biolab_runs/haiku_seq_pour_3/library
+mode: library loop
+
+
+model calls: 0
+test: 4/20 held-out layouts
+failed checks on test: reading_in_tolerance x16
+
+exit code: 0  run folder: /scratch/gilbreth/flermama/biolab_runs/haiku_seq_composed_3
