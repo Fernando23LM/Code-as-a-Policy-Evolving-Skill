@@ -1,0 +1,18 @@
+# Single turn, ground-truth state. Run from the cap-x folder:
+#   .venv/bin/python capx/envs/launch.py --config-path <this file> --use-oracle-code True
+
+env:
+  _target_: biolab.capx_env.task.TubeRackCodeEnv
+  cfg:
+    _target_: capx.envs.tasks.base.CodeExecEnvConfig
+    low_level: yam_tube_rack_low_level
+    privileged: true
+    apis:
+      - YamTubeRackPrivilegedApi
+    # prompt is inherited from TubeRackCodeEnv
+
+record_video: true
+output_dir: ./outputs/yam_tube_rack_privileged
+
+trials: 20
+num_workers: 4

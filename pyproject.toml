@@ -1,0 +1,16 @@
+[project]
+name = "biolab"
+version = "0.1.0"
+description = "Lab-bench tasks for two YAM arms in MuJoCo, with CaP-X bindings"
+requires-python = ">=3.10"
+dependencies = ["mujoco>=3.5", "numpy"]
+
+[project.optional-dependencies]
+dev = ["pillow", "pytest"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["biolab*"]

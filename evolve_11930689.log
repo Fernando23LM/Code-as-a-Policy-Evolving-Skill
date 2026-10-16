@@ -1,0 +1,107 @@
+Exception ignored in: <function Renderer.__del__ at 0x14b83c71da20>
+Traceback (most recent call last):
+  File "/scratch/gilbreth/flermama/capx/cap-x/.venv/lib/python3.10/site-packages/mujoco/renderer.py", line 340, in __del__
+Exception ignored in: <function Renderer.__del__ at 0x15149d2ada20>
+Traceback (most recent call last):
+  File "/scratch/gilbreth/flermama/capx/cap-x/.venv/lib/python3.10/site-packages/mujoco/renderer.py", line 340, in __del__
+Exception ignored in: <function Renderer.__del__ at 0x14ae4dce5a20>
+Traceback (most recent call last):
+  File "/scratch/gilbreth/flermama/capx/cap-x/.venv/lib/python3.10/site-packages/mujoco/renderer.py", line 340, in __del__
+round 0: 0/12 practice layouts, partial credit 0.00
+Exception ignored in: <function Renderer.__del__ at 0x14cec43a9a20>
+Traceback (most recent call last):
+  File "/scratch/gilbreth/flermama/capx/cap-x/.venv/lib/python3.10/site-packages/mujoco/renderer.py", line 340, in __del__
+Exception ignored in: <function Renderer.__del__ at 0x148f88165a20>
+Traceback (most recent call last):
+  File "/scratch/gilbreth/flermama/capx/cap-x/.venv/lib/python3.10/site-packages/mujoco/renderer.py", line 340, in __del__
+round 1: 0/12 practice layouts, partial credit 0.30
+Exception ignored in: <function Renderer.__del__ at 0x1533b27e9a20>
+Traceback (most recent call last):
+  File "/scratch/gilbreth/flermama/capx/cap-x/.venv/lib/python3.10/site-packages/mujoco/renderer.py", line 340, in __del__
+    self.close()
+  File "/scratch/gilbreth/flermama/capx/cap-x/.venv/lib/python3.10/site-packages/mujoco/renderer.py", line 326, in close
+    self._gl_context.free()
+  File "/scratch/gilbreth/flermama/capx/cap-x/.venv/lib/python3.10/site-packages/mujoco/egl/__init__.py", line 131, in free
+Exception ignored in: <function Renderer.__del__ at 0x1554502a9a20>
+Exception ignored in: <function Renderer.__del__ at 0x149c0b429a20>
+round 2: 0/12 practice layouts, partial credit 0.16  (not kept)
+round 3: 2/12 practice layouts, partial credit 0.42
+round 4: 3/12 practice layouts, partial credit 0.36
+Exception ignored in: <function Renderer.__del__ at 0x151eeb7eda20>
+Traceback (most recent call last):
+  File "/scratch/gilbreth/flermama/capx/cap-x/.venv/lib/python3.10/site-packages/mujoco/renderer.py", line 340, in __del__
+Exception ignored in: <function Renderer.__del__ at 0x14d717965a20>
+Traceback (most recent call last):
+  File "/scratch/gilbreth/flermama/capx/cap-x/.venv/lib/python3.10/site-packages/mujoco/renderer.py", line 340, in __del__
+Exception ignored in: <function Renderer.__del__ at 0x1531722ada20>
+    self.close()
+Exception ignored in: <function Renderer.__del__ at 0x150ad4379a20>
+Exception ignored in: <function Renderer.__del__ at 0x14765d641a20>
+Traceback (most recent call last):
+  File "/scratch/gilbreth/flermama/capx/cap-x/.venv/lib/python3.10/site-packages/mujoco/renderer.py", line 326, in close
+Traceback (most recent call last):
+Exception ignored in: <function Renderer.__del__ at 0x15077ef69a20>
+    self.close()
+Traceback (most recent call last):
+  File "/scratch/gilbreth/flermama/capx/cap-x/.venv/lib/python3.10/site-packages/mujoco/renderer.py", line 340, in __del__
+  File "/scratch/gilbreth/flermama/capx/cap-x/.venv/lib/python3.10/site-packages/mujoco/renderer.py", line 340, in __del__
+Traceback (most recent call last):
+  File "/scratch/gilbreth/flermama/capx/cap-x/.venv/lib/python3.10/site-packages/mujoco/renderer.py", line 326, in close
+  File "/scratch/gilbreth/flermama/capx/cap-x/.venv/lib/python3.10/site-packages/mujoco/renderer.py", line 340, in __del__
+Exception ignored in: <function Renderer.__del__ at 0x1474e9139a20>
+    self._gl_context.free()
+  File "/scratch/gilbreth/flermama/capx/cap-x/.venv/lib/python3.10/site-packages/mujoco/renderer.py", line 340, in __del__
+Traceback (most recent call last):
+  File "/scratch/gilbreth/flermama/capx/cap-x/.venv/lib/python3.10/site-packages/mujoco/egl/__init__.py", line 131, in free
+    self._gl_context.free()
+  File "/scratch/gilbreth/flermama/capx/cap-x/.venv/lib/python3.10/site-packages/mujoco/renderer.py", line 340, in __del__
+    self.close()
+  File "/scratch/gilbreth/flermama/capx/cap-x/.venv/lib/python3.10/site-packages/mujoco/egl/__init__.py", line 131, in free
+  File "/scratch/gilbreth/flermama/capx/cap-x/.venv/lib/python3.10/site-packages/mujoco/renderer.py", line 326, in close
+    self.close()
+  File "/scratch/gilbreth/flermama/capx/cap-x/.venv/lib/python3.10/site-packages/mujoco/renderer.py", line 326, in close
+    self.close()
+  File "/scratch/gilbreth/flermama/capx/cap-x/.venv/lib/python3.10/site-packages/mujoco/renderer.py", line 326, in close
+    self.close()
+  File "/scratch/gilbreth/flermama/capx/cap-x/.venv/lib/python3.10/site-packages/mujoco/renderer.py", line 326, in close
+    self.close()
+    self._gl_context.free()
+  File "/scratch/gilbreth/flermama/capx/cap-x/.venv/lib/python3.10/site-packages/mujoco/renderer.py", line 326, in close
+    self._gl_context.free()
+  File "/scratch/gilbreth/flermama/capx/cap-x/.venv/lib/python3.10/site-packages/mujoco/egl/__init__.py", line 131, in free
+    self._gl_context.free()
+  File "/scratch/gilbreth/flermama/capx/cap-x/.venv/lib/python3.10/site-packages/mujoco/egl/__init__.py", line 131, in free
+    self._gl_context.free()
+  File "/scratch/gilbreth/flermama/capx/cap-x/.venv/lib/python3.10/site-packages/mujoco/egl/__init__.py", line 131, in free
+  File "/scratch/gilbreth/flermama/capx/cap-x/.venv/lib/python3.10/site-packages/mujoco/egl/__init__.py", line 131, in free
+    EGL.eglMakeCurrent(EGL_DISPLAY, EGL.EGL_NO_SURFACE,
+    EGL.eglMakeCurrent(EGL_DISPLAY, EGL.EGL_NO_SURFACE,
+    EGL.eglMakeCurrent(EGL_DISPLAY, EGL.EGL_NO_SURFACE,
+  File "/scratch/gilbreth/flermama/capx/cap-x/.venv/lib/python3.10/site-packages/OpenGL/error.py", line 230, in glCheckError
+    self._gl_context.free()
+  File "/scratch/gilbreth/flermama/capx/cap-x/.venv/lib/python3.10/site-packages/OpenGL/error.py", line 230, in glCheckError
+  File "/scratch/gilbreth/flermama/capx/cap-x/.venv/lib/python3.10/site-packages/mujoco/egl/__init__.py", line 131, in free
+round 5: 2/12 practice layouts, partial credit 0.38  (not kept)
+round 6: 0/12 practice layouts, partial credit 0.22  (not kept)
+round 7: 3/12 practice layouts, partial credit 0.40
+
+TEST: 4/20 held-out layouts
+run: /scratch/gilbreth/flermama/biolab_runs/haiku_stage_full
+task: weigh_salt
+model: claude-haiku-5.5
+mode: library loop, fixed modules handover=/scratch/gilbreth/flermama/biolab_runs/haiku_stage_handover/library, pour=/scratch/gilbreth/flermama/biolab_runs/haiku_stage_pour/library
+
+round 0: 0/12  partial credit 0.00  kept
+round 1: 0/12  partial credit 0.30  kept
+round 2: 0/12  partial credit 0.16
+round 3: 2/12  partial credit 0.42  kept
+round 4: 3/12  partial credit 0.36  kept
+round 5: 2/12  partial credit 0.38
+round 6: 0/12  partial credit 0.22
+round 7: 3/12  partial credit 0.40  kept
+
+model calls: 8
+test: 4/20 held-out layouts
+failed checks on test: at_rest x1, pan_clear x4, reading_in_tolerance x16
+
+exit code: 0  run folder: /scratch/gilbreth/flermama/biolab_runs/haiku_stage_full

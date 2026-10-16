@@ -1,0 +1,44 @@
+round 0: 0/12 practice layouts, partial credit 0.03
+round 1: 0/12 practice layouts, partial credit 0.10
+round 2: 0/12 practice layouts, partial credit 0.10
+round 3: 0/12 practice layouts, partial credit 0.19
+round 4: 0/12 practice layouts, partial credit 0.10  (not kept)
+Exception ignored in: <function Renderer.__del__ at 0x14966de4d990>
+round 5: 0/12 practice layouts, partial credit 0.10  (not kept)
+Exception ignored in: <function Renderer.__del__ at 0x150f61491990>
+Traceback (most recent call last):
+  File "/scratch/gilbreth/flermama/capx/cap-x/.venv/lib/python3.10/site-packages/mujoco/renderer.py", line 340, in __del__
+round 6: 0/12 practice layouts, partial credit 0.20
+round 7: 0/12 practice layouts, partial credit 0.10  (not kept)
+round 8: 0/12 practice layouts, partial credit 0.10  (not kept)
+round 9: 0/12 practice layouts, partial credit 0.10  (not kept)
+round 10: 0/12 practice layouts, partial credit 0.10  (not kept)
+Exception ignored in: <function Renderer.__del__ at 0x1523fb349990>
+Traceback (most recent call last):
+  File "/scratch/gilbreth/flermama/capx/cap-x/.venv/lib/python3.10/site-packages/mujoco/renderer.py", line 340, in __del__
+round 11: 0/12 practice layouts, partial credit 0.27
+
+TEST: 4/20 held-out layouts
+run: /scratch/gilbreth/flermama/biolab_runs/luna_weigh_cmp_plain_2
+task: weigh_salt_plain
+model: gpt-6-luna
+mode: library loop, inherited /scratch/gilbreth/flermama/biolab_runs/luna_loop/library
+
+round 0: 0/12  partial credit 0.03  kept
+round 1: 0/12  partial credit 0.10  kept
+round 2: 0/12  partial credit 0.10  kept
+round 3: 0/12  partial credit 0.19  kept
+round 4: 0/12  partial credit 0.10
+round 5: 0/12  partial credit 0.10
+round 6: 0/12  partial credit 0.20  kept
+round 7: 0/12  partial credit 0.10
+round 8: 0/12  partial credit 0.10
+round 9: 0/12  partial credit 0.10
+round 10: 0/12  partial credit 0.10
+round 11: 0/12  partial credit 0.27  kept
+
+model calls: 12
+test: 4/20 held-out layouts
+failed checks on test: reading_in_tolerance x16
+
+exit code: 0  run folder: /scratch/gilbreth/flermama/biolab_runs/luna_weigh_cmp_plain_2

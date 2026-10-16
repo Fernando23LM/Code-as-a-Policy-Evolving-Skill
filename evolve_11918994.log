@@ -1,0 +1,2 @@
+/scratch/gilbreth/flermama/capx/cap-x/.venv/bin/python: No module named biolab.evolve.__main__; 'biolab.evolve' is a package and cannot be directly executed
+exit code: 1  run folder: /scratch/gilbreth/flermama/biolab_runs/luna_restarts

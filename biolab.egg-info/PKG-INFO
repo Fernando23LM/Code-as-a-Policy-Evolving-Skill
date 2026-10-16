@@ -1,0 +1,10 @@
+Metadata-Version: 2.4
+Name: biolab
+Version: 0.1.0
+Summary: Lab-bench tasks for two YAM arms in MuJoCo, with CaP-X bindings
+Requires-Python: >=3.10
+Requires-Dist: mujoco>=3.5
+Requires-Dist: numpy
+Provides-Extra: dev
+Requires-Dist: pillow; extra == "dev"
+Requires-Dist: pytest; extra == "dev"

@@ -1,0 +1,250 @@
+INFO:     Started server process [808403]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8110 (Press CTRL+C to quit)
+WARNING:  Invalid HTTP request received.
+[robosuite WARNING] No private macro file found! (macros.py:57)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:58)
+[robosuite WARNING] To setup, run: python /scratch/gilbreth/flermama/capx/cap-x/capx/third_party/robosuite/robosuite/scripts/setup_macros.py (macros.py:59)
+[robosuite WARNING] Could not import robosuite_models. Some robots may not be available. If you want to use these robots, please install robosuite_models from source (https://github.com/ARISE-Initiative/robosuite_models) or through pip install. (__init__.py:32)
+[robosuite WARNING] Could not load the mink-based whole-body IK. Make sure you install related import properly, otherwise you will not be able to use the default IK controller setting for GR1 robot. (__init__.py:42)
+R1Pro not installed, skipping R1Pro APIs
+LIBERO not installed!
+R1Pro not installed!
+[robosuite WARNING] No private macro file found! (macros.py:57)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:58)
+[robosuite WARNING] To setup, run: python /scratch/gilbreth/flermama/capx/cap-x/capx/third_party/robosuite/robosuite/scripts/setup_macros.py (macros.py:59)
+[robosuite WARNING] No private macro file found! (macros.py:57)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:58)
+[robosuite WARNING] To setup, run: python /scratch/gilbreth/flermama/capx/cap-x/capx/third_party/robosuite/robosuite/scripts/setup_macros.py (macros.py:59)
+[robosuite WARNING] Could not import robosuite_models. Some robots may not be available. If you want to use these robots, please install robosuite_models from source (https://github.com/ARISE-Initiative/robosuite_models) or through pip install. (__init__.py:32)
+[robosuite WARNING] Could not import robosuite_models. Some robots may not be available. If you want to use these robots, please install robosuite_models from source (https://github.com/ARISE-Initiative/robosuite_models) or through pip install. (__init__.py:32)
+[robosuite WARNING] Could not load the mink-based whole-body IK. Make sure you install related import properly, otherwise you will not be able to use the default IK controller setting for GR1 robot. (__init__.py:42)
+[robosuite WARNING] Could not load the mink-based whole-body IK. Make sure you install related import properly, otherwise you will not be able to use the default IK controller setting for GR1 robot. (__init__.py:42)
+INFO:     127.0.0.1:41004 - "POST /chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41008 - "POST /chat/completions HTTP/1.1" 200 OK
+Traceback (most recent call last):
+  File "/scratch/gilbreth/flermama/capx/cap-x/capx/envs/tasks/base.py", line 174, in _exec_user_code
+    exec(code, self._exec_globals, self._exec_globals)
+  File "<string>", line 26, in <module>
+AssertionError
+R1Pro not installed, skipping R1Pro APIs
+LIBERO not installed!
+R1Pro not installed!
+Time taken to query model: 26.13 seconds
+R1Pro not installed, skipping R1Pro APIs
+LIBERO not installed!
+R1Pro not installed!
+Time taken to query model: 25.48 seconds
+Code block 1 done
+Number of code blocks: 1
+Code blocks done
+Saved interaction video to /scratch/gilbreth/flermama/capx/outputs/gpt-6-luna/yam_tube_rack_privileged_gpt-6-luna_11917721/trial_02_sandboxrc_0_reward_1.000_taskcompleted_1/video_turn_00.mp4 (199 frames)
+Saved interaction video to /scratch/gilbreth/flermama/capx/outputs/gpt-6-luna/yam_tube_rack_privileged_gpt-6-luna_11917721/trial_02_sandboxrc_0_reward_1.000_taskcompleted_1/video_combined.mp4 (200 frames)
+Trial 2 took 33.96 seconds
+INFO:     127.0.0.1:44062 - "POST /chat/completions HTTP/1.1" 200 OK
+Code block 1 done
+Number of code blocks: 1
+Code blocks done
+Saved interaction video to /scratch/gilbreth/flermama/capx/outputs/gpt-6-luna/yam_tube_rack_privileged_gpt-6-luna_11917721/trial_01_sandboxrc_1_reward_0.000_taskcompleted_0/video_turn_00.mp4 (66 frames)
+Saved interaction video to /scratch/gilbreth/flermama/capx/outputs/gpt-6-luna/yam_tube_rack_privileged_gpt-6-luna_11917721/trial_01_sandboxrc_1_reward_0.000_taskcompleted_0/video_combined.mp4 (67 frames)
+Trial 1 took 33.52 seconds
+Time taken to query model: 21.21 seconds
+Code block 1 done
+Number of code blocks: 1
+Code blocks done
+Saved interaction video to /scratch/gilbreth/flermama/capx/outputs/gpt-6-luna/yam_tube_rack_privileged_gpt-6-luna_11917721/trial_03_sandboxrc_0_reward_0.000_taskcompleted_0/video_turn_00.mp4 (154 frames)
+Saved interaction video to /scratch/gilbreth/flermama/capx/outputs/gpt-6-luna/yam_tube_rack_privileged_gpt-6-luna_11917721/trial_03_sandboxrc_0_reward_0.000_taskcompleted_0/video_combined.mp4 (155 frames)
+Trial 3 took 24.28 seconds
+----------------------------------------------------------------------------------------------------
+Generated program:
+# Code block 0
+import numpy as np
+
+task = get_task()
+tube = task["tube"]
+ix, iy = task["dest_cell"]
+
+source = get_rack("rack_source")
+dest = get_rack("rack_dest")
+bottom, top = get_tube_pose(tube)
+target_bottom = np.asarray(dest["cells"][(ix, iy)], dtype=float)
+
+arm = "right"
+grasp_offset = 0.045
+source_yaw = source["yaw"]
+dest_yaw = dest["yaw"]
+
+grasp = np.asarray(bottom, dtype=float).copy()
+grasp[2] += grasp_offset
+
+set_gripper(arm, 0.082)
+assert move_to(arm, grasp + np.array([0.0, 0.0, 0.10]), yaw=source_yaw)
+assert move_to(arm, grasp, yaw=source_yaw, speed=0.06)
+set_gripper(arm, 0.0)
+
+travel_z = max(float(bottom[2]), float(target_bottom[2])) + 0.20
+assert move_to(arm, np.array([grasp[0], grasp[1], travel_z]), yaw=source_yaw)
+assert move_to(arm, np.array([target_bottom[0], target_bottom[1], travel_z]), yaw=dest_yaw)
+
+insert = target_bottom.copy()
+insert[2] += grasp_offset
+assert move_to(arm, insert, yaw=dest_yaw, speed=0.05)
+set_gripper(arm, 0.082)
+
+clear = insert.copy()
+clear[2] += 0.10
+assert move_to(arm, clear, yaw=dest_yaw)
+go_home(arm)
+
+
+Environment response:
+  Sandbox failed: 1
+  Stdout: 
+  Stderr: Traceback (most recent call last):
+  File "/scratch/gilbreth/flermama/capx/cap-x/capx/envs/tasks/base.py", line 174, in _exec_user_code
+    exec(code, self._exec_globals, self._exec_globals)
+  File "<string>", line 26, in <module>
+AssertionError
+
+  Reward: 0.0
+  Task Completed: False
+  Terminated: False, Truncated: False
+  Num Regenerations: 0
+  Num Finishes: 0
+  Num Code Blocks: 1
+----------------------------------------------------------------------------------------------------
+Code saved to /scratch/gilbreth/flermama/capx/outputs/gpt-6-luna/yam_tube_rack_privileged_gpt-6-luna_11917721/trial_01_sandboxrc_1_reward_0.000_taskcompleted_0/code.py
+----------------------------------------------------------------------------------------------------
+Generated program:
+# Code block 0
+import numpy as np
+
+task = get_task()
+tube = task["tube"]
+dest_cell = task["dest_cell"]
+
+source = get_rack("rack_source")
+dest = get_rack("rack_dest")
+bottom, top = get_tube_pose(tube)
+
+tube_xy = (np.asarray(bottom[:2]) + np.asarray(top[:2])) / 2
+grasp_offset = 0.055
+grasp_z = float(bottom[2]) + grasp_offset
+source_yaw = source["yaw"]
+dest_yaw = dest["yaw"]
+
+set_gripper("right", 0.082)
+
+pick = np.array([tube_xy[0], tube_xy[1], grasp_z])
+pick_approach = pick + np.array([0.0, 0.0, 0.12])
+move_to("right", pick_approach, yaw=source_yaw, speed=0.08)
+move_to("right", pick, yaw=source_yaw, speed=0.05)
+set_gripper("right", 0.0)
+
+dest_bottom = np.asarray(dest["cells"][dest_cell])
+lift_z = max(float(bottom[2]), float(dest_bottom[2])) + 0.18
+move_to("right", np.array([tube_xy[0], tube_xy[1], lift_z]), yaw=source_yaw, speed=0.07)
+
+dest_grasp = np.array([
+    dest_bottom[0],
+    dest_bottom[1],
+    dest_bottom[2] + grasp_offset
+])
+dest_approach = dest_grasp + np.array([0.0, 0.0, 0.12])
+move_to("right", np.array([dest_bottom[0], dest_bottom[1], lift_z]), yaw=dest_yaw, speed=0.08)
+move_to("right", dest_approach, yaw=dest_yaw, speed=0.07)
+move_to("right", dest_grasp, yaw=dest_yaw, speed=0.05)
+
+set_gripper("right", 0.082)
+move_to("right", dest_approach, yaw=dest_yaw, speed=0.06)
+
+
+Environment response:
+  Sandbox failed: 0
+  Stdout: 
+  Stderr: 
+  Reward: 1.0
+  Task Completed: True
+  Terminated: True, Truncated: False
+  Num Regenerations: 0
+  Num Finishes: 0
+  Num Code Blocks: 1
+----------------------------------------------------------------------------------------------------
+Code saved to /scratch/gilbreth/flermama/capx/outputs/gpt-6-luna/yam_tube_rack_privileged_gpt-6-luna_11917721/trial_02_sandboxrc_0_reward_1.000_taskcompleted_1/code.py
+----------------------------------------------------------------------------------------------------
+Generated program:
+# Code block 0
+import numpy as np
+
+task = get_task()
+tube = task["tube"]
+ix, iy = task["dest_cell"]
+
+bottom, top = get_tube_pose(tube)
+source_rack = get_rack("rack_source")
+dest_rack = get_rack("rack_dest")
+
+grasp_offset = min(0.052, float(top[2] - bottom[2]) - 0.015)
+grasp = np.array([bottom[0], bottom[1], bottom[2] + grasp_offset])
+
+set_gripper("right", 0.082)
+assert move_to(
+    "right",
+    np.array([bottom[0], bottom[1], top[2] + 0.08]),
+    yaw=source_rack["yaw"],
+)
+assert move_to("right", grasp, yaw=source_rack["yaw"], speed=0.06)
+set_gripper("right", 0.025)
+
+assert move_to(
+    "right",
+    np.array([bottom[0], bottom[1], top[2] + 0.10]),
+    yaw=source_rack["yaw"],
+)
+dest_bottom = np.array(dest_rack["cells"][(ix, iy)])
+assert move_to(
+    "right",
+    np.array([dest_bottom[0], dest_bottom[1], top[2] + 0.10]),
+    yaw=dest_rack["yaw"],
+)
+assert move_to(
+    "right",
+    np.array([dest_bottom[0], dest_bottom[1], dest_bottom[2] + grasp_offset]),
+    yaw=dest_rack["yaw"],
+    speed=0.05,
+)
+set_gripper("right", 0.082)
+assert move_to(
+    "right",
+    np.array([dest_bottom[0], dest_bottom[1], dest_bottom[2] + 0.12]),
+    yaw=dest_rack["yaw"],
+)
+go_home("right")
+
+
+Environment response:
+  Sandbox failed: 0
+  Stdout: 
+  Stderr: 
+  Reward: 0.0
+  Task Completed: False
+  Terminated: False, Truncated: False
+  Num Regenerations: 0
+  Num Finishes: 0
+  Num Code Blocks: 1
+----------------------------------------------------------------------------------------------------
+Code saved to /scratch/gilbreth/flermama/capx/outputs/gpt-6-luna/yam_tube_rack_privileged_gpt-6-luna_11917721/trial_03_sandboxrc_0_reward_0.000_taskcompleted_0/code.py
+
+Summary Statistics:
+Model: gpt-6-luna
+Config Path: /scratch/gilbreth/flermama/biomedical-tasks/env_configs/tube_rack/yam_tube_rack_privileged.yaml
+Git Commit: 53e9966 (Dirty: False)
+Total number of trials: 3
+Code generation success rate / Average reward / Task completed: 
+0.667/0.333/1
+Average code blocks: 1.000
+Average regenerations: 0.000
+Average finishes: 0.000
+Elapsed time: 93.26 seconds
+exit code: 0  outputs: /scratch/gilbreth/flermama/capx/outputs/yam_tube_rack_privileged_gpt-6-luna_11917721

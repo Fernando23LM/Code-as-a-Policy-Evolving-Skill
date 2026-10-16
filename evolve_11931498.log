@@ -1,0 +1,36 @@
+Traceback (most recent call last):
+  File "/scratch/gilbreth/flermama/biomedical-tasks/biolab/evolve/llm.py", line 30, in call
+    body = post(payload)
+  File "/scratch/gilbreth/flermama/biomedical-tasks/biolab/evolve/llm.py", line 23, in post
+    with urllib.request.urlopen(request, timeout=600) as response:
+  File "/scratch/gilbreth/flermama/capx/uv_python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/urllib/request.py", line 216, in urlopen
+    return opener.open(url, data, timeout)
+  File "/scratch/gilbreth/flermama/capx/uv_python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/urllib/request.py", line 525, in open
+    response = meth(req, response)
+  File "/scratch/gilbreth/flermama/capx/uv_python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/urllib/request.py", line 634, in http_response
+    response = self.parent.error(
+  File "/scratch/gilbreth/flermama/capx/uv_python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/urllib/request.py", line 563, in error
+    return self._call_chain(*args)
+  File "/scratch/gilbreth/flermama/capx/uv_python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/urllib/request.py", line 496, in _call_chain
+    result = func(*args)
+  File "/scratch/gilbreth/flermama/capx/uv_python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/urllib/request.py", line 643, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 429: Too Many Requests
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/scratch/gilbreth/flermama/capx/uv_python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/scratch/gilbreth/flermama/capx/uv_python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/scratch/gilbreth/flermama/biomedical-tasks/biolab/evolve/__main__.py", line 87, in <module>
+    main()
+  File "/scratch/gilbreth/flermama/biomedical-tasks/biolab/evolve/__main__.py", line 81, in main
+    rounds = practice(cfg, llm)
+  File "/scratch/gilbreth/flermama/biomedical-tasks/biolab/evolve/loop.py", line 159, in practice
+    response = llm(messages)
+  File "/scratch/gilbreth/flermama/biomedical-tasks/biolab/evolve/llm.py", line 49, in call
+    raise RuntimeError(f"LLM request failed with HTTP {exc.code}: {detail}") from exc
+RuntimeError: LLM request failed with HTTP 429: {"error":{"message":"model_requires_purchase: claude-sonnet-5.5 is locked on your account until you make a purchase. Buy credits at https://platform.experientiallabs.ai/credits to unlock it; the $1 card verification alone does not unlock it.","type":"insufficient_quota","param":null,"code":"insufficient_quota"}}
+exit code: 1  run folder: /scratch/gilbreth/flermama/biolab_runs/sonnet_seq_pour

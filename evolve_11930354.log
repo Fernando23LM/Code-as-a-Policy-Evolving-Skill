@@ -1,0 +1,39 @@
+multiprocessing.pool.RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/scratch/gilbreth/flermama/capx/uv_python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/scratch/gilbreth/flermama/capx/uv_python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/multiprocessing/pool.py", line 48, in mapstar
+    return list(map(*args))
+  File "/scratch/gilbreth/flermama/biomedical-tasks/biolab/evolve/loop.py", line 102, in _episode_job
+    return run_episode(env, seed, skills, policy, spec.api, recorder, modules)
+  File "/scratch/gilbreth/flermama/biomedical-tasks/biolab/evolve/runner.py", line 57, in run_episode
+    recorder.start(seed)
+  File "/scratch/gilbreth/flermama/biomedical-tasks/biolab/evolve/video.py", line 26, in start
+    self.frame()
+  File "/scratch/gilbreth/flermama/biomedical-tasks/biolab/evolve/video.py", line 35, in frame
+    label += f"   {self.env.balance_reading():.2f} g of {self.env.task.target_g:.1f} g"
+AttributeError: 'HandoverTask' object has no attribute 'target_g'
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/scratch/gilbreth/flermama/capx/uv_python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/scratch/gilbreth/flermama/capx/uv_python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/scratch/gilbreth/flermama/biomedical-tasks/biolab/evolve/__main__.py", line 79, in <module>
+    main()
+  File "/scratch/gilbreth/flermama/biomedical-tasks/biolab/evolve/__main__.py", line 73, in main
+    rounds = practice(cfg, llm)
+  File "/scratch/gilbreth/flermama/biomedical-tasks/biolab/evolve/loop.py", line 176, in practice
+    record["results"] = run_layouts(cfg, env, cfg.practice_seeds, skills, parsed["policy"],
+  File "/scratch/gilbreth/flermama/biomedical-tasks/biolab/evolve/loop.py", line 123, in run_layouts
+    results = pool.map(_episode_job, jobs, chunksize=1)
+  File "/scratch/gilbreth/flermama/capx/uv_python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/multiprocessing/pool.py", line 367, in map
+    return self._map_async(func, iterable, mapstar, chunksize).get()
+  File "/scratch/gilbreth/flermama/capx/uv_python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/multiprocessing/pool.py", line 774, in get
+    raise self._value
+AttributeError: 'HandoverTask' object has no attribute 'target_g'
+exit code: 1  run folder: /scratch/gilbreth/flermama/biolab_runs/haiku_stage_handover

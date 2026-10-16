@@ -1,0 +1,9 @@
+protein_assay 0 OK   reported 0.640 mg/mL, true 0.661; sample well 100 uL; 6 of 6 standards right; 0 uL spilled 
+protein_assay 1 OK   reported 0.439 mg/mL, true 0.436; sample well 100 uL; 6 of 6 standards right; 0 uL spilled 
+protein_assay 2 OK   reported 0.193 mg/mL, true 0.189; sample well 100 uL; 6 of 6 standards right; 0 uL spilled 
+protein_assay: 3/3, 1483 frames (74 s of video), 2069 kB, 41 s wall
+cell_culture 0 OK   clock 168.0 h, 2.40 million attached cells (target 1.8), viability 100%, per dish A: 0.80M in 2000 uL, starved 0 h, overgrown 0 h, B: 0.80M in 2000 uL, starved  
+cell_culture 1 OK   clock 168.0 h, 2.25 million attached cells (target 1.8), viability 100%, per dish A: 0.75M in 2000 uL, starved 0 h, overgrown 0 h, B: 0.75M in 2000 uL, starved  
+cell_culture 2 OK   clock 168.0 h, 2.66 million attached cells (target 1.8), viability 100%, per dish A: 0.89M in 2000 uL, starved 0 h, overgrown 0 h, B: 0.89M in 2000 uL, starved  
+cell_culture: 3/3, 6031 frames (302 s of video), 8542 kB, 125 s wall
+exit code: 0

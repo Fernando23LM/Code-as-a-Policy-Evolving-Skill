@@ -1,0 +1,3 @@
+model call: ? tokens in, ? out
+round 0: 0/12 practice layouts, partial credit 0.00  (not kept)  [no ```python policy block found]
+[2026-10-11T20:46:18.295] error: *** JOB 11931901 ON gilbreth-h005 CANCELLED AT 2026-10-11T20:46:18 DUE to SIGNAL Terminated ***

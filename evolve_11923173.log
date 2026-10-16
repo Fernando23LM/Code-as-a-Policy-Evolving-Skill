@@ -1,0 +1,12 @@
+
+TEST: 4/4 held-out layouts
+run: /scratch/gilbreth/flermama/biolab_runs/reference_cap_practice
+task: snap_cap
+model: hand-written reference
+mode: library loop
+
+
+model calls: 0
+test: 4/4 held-out layouts
+
+exit code: 0  run folder: /scratch/gilbreth/flermama/biolab_runs/reference_cap_practice
