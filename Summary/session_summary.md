@@ -14,11 +14,11 @@ layouts it never saw.
 
 | Task | What the robot must do | Judge | Reference policy |
 |---|---|---|---|
-| `tube_rack` <video controls width="200" src="Move_vial_between_racks.mp4"></video> | right arm moves a named vial between racks | vial seated upright in the target cell | 40/40 |
-| `snap_cap` <video controls width="200" src="Open_snap_cap_tube.mp4"></video> | open the lid of a clamped tube past 90 degrees | lid angle, at rest, released | 64/64 |
-| `weight_salt` <video controls width="200" src="Pour_salt.mp4"></video> | left arm passes a salt vial to a shared rack; right arm pours onto a balance to a target mass (0.8 to 1.6 g, tolerance 0.2 g) | the balance reading itself | 61/64 seeds, 19/20 held-out |
-| `weight_handover` <video controls width="200" src="Move_vial_to_middle.mp4"></video> | first half of `weight_salt`: vial into the shared rack | vial seated, released, no salt spilled | 20/20 |
-| `weight_pour` <video controls width="200" src="Pour_salt_from_middle.mp4"></video> | second half: vial starts in the shared rack | the balance reading | 18 to 19/20 |
+| `tube_rack` <video controls width="200" src="Move_vial_between_racks.gif"></video> | right arm moves a named vial between racks | vial seated upright in the target cell | 40/40 |
+| `snap_cap` <video controls width="200" src="Open_snap_cap_tube.gif"></video> | open the lid of a clamped tube past 90 degrees | lid angle, at rest, released | 64/64 |
+| `weight_salt` <video controls width="200" src="Pour_salt.gif"></video> | left arm passes a salt vial to a shared rack; right arm pours onto a balance to a target mass (0.8 to 1.6 g, tolerance 0.2 g) | the balance reading itself | 61/64 seeds, 19/20 held-out |
+| `weight_handover` <video controls width="200" src="Move_vial_to_middle.gif"></video> | first half of `weight_salt`: vial into the shared rack | vial seated, released, no salt spilled | 20/20 |
+| `weight_pour` <video controls width="200" src="Pour_salt_from_middle.gif"></video> | second half: vial starts in the shared rack | the balance reading | 18 to 19/20 |
 
 
 ## Workflow
