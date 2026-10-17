@@ -1,45 +1,0 @@
-downloading uv 0.13.0 x86_64-unknown-linux-gnu
-installing to /scratch/gilbreth/flermama/capx/uv_bin
-  uv
-  uvx
-everything's installed!
-Cloning into 'cap-x'...
-Updating files:  19% (103/531)Updating files:  20% (107/531)Updating files:  21% (112/531)Updating files:  22% (117/531)Updating files:  23% (123/531)Updating files:  24% (128/531)Updating files:  25% (133/531)Updating files:  26% (139/531)Updating files:  27% (144/531)Updating files:  28% (149/531)Updating files:  29% (154/531)Updating files:  30% (160/531)Updating files:  31% (165/531)Updating files:  32% (170/531)Updating files:  33% (176/531)Updating files:  33% (180/531)Updating files:  34% (181/531)Updating files:  35% (186/531)Updating files:  36% (192/531)Updating files:  37% (197/531)Updating files:  38% (202/531)Updating files:  39% (208/531)Updating files:  40% (213/531)Updating files:  41% (218/531)Updating files:  42% (224/531)Updating files:  43% (229/531)Updating files:  44% (234/531)Updating files:  45% (239/531)Updating files:  46% (245/531)Updating files:  47% (250/531)Updating files:  48% (255/531)Updating files:  49% (261/531)Updating files:  50% (266/531)Updating files:  51% (271/531)Updating files:  52% (277/531)Updating files:  53% (282/531)Updating files:  54% (287/531)Updating files:  55% (293/531)Updating files:  56% (298/531)Updating files:  57% (303/531)Updating files:  58% (308/531)Updating files:  59% (314/531)Updating files:  60% (319/531)Updating files:  61% (324/531)Updating files:  62% (330/531)Updating files:  63% (335/531)Updating files:  64% (340/531)Updating files:  65% (346/531)Updating files:  65% (350/531)Updating files:  66% (351/531)Updating files:  67% (356/531)Updating files:  68% (362/531)Updating files:  69% (367/531)Updating files:  70% (372/531)Updating files:  71% (378/531)Updating files:  72% (383/531)Updating files:  73% (388/531)Updating files:  74% (393/531)Updating files:  75% (399/531)Updating files:  76% (404/531)Updating files:  77% (409/531)Updating files:  78% (415/531)Updating files:  79% (420/531)Updating files:  80% (425/531)Updating files:  81% (431/531)Updating files:  82% (436/531)Updating files:  83% (441/531)Updating files:  84% (447/531)Updating files:  85% (452/531)Updating files:  86% (457/531)Updating files:  87% (462/531)Updating files:  88% (468/531)Updating files:  89% (473/531)Updating files:  90% (478/531)Updating files:  91% (484/531)Updating files:  92% (489/531)Updating files:  93% (494/531)Updating files:  94% (500/531)Updating files:  95% (505/531)Updating files:  96% (510/531)Updating files:  97% (516/531)Updating files:  98% (521/531)Updating files:  99% (526/531)Updating files: 100% (531/531)Updating files: 100% (531/531), done.
-Submodule 'capx/third_party/LIBERO-PRO' (https://github.com/uynitsuj/LIBERO-PRO.git) registered for path 'capx/third_party/LIBERO-PRO'
-Submodule 'capx/third_party/b1k' (https://github.com/qingh097/b1k.git) registered for path 'capx/third_party/b1k'
-Submodule 'capx/third_party/contact_graspnet_pytorch' (https://github.com/uynitsuj/contact_graspnet_pytorch) registered for path 'capx/third_party/contact_graspnet_pytorch'
-Submodule 'capx/third_party/curobo' (https://github.com/NVlabs/curobo.git) registered for path 'capx/third_party/curobo'
-Submodule 'capx/third_party/libero_dependencies/robosuite' (https://github.com/Max-Fu/robosuite) registered for path 'capx/third_party/libero_dependencies/robosuite'
-Submodule 'capx/third_party/robosuite' (https://github.com/uynitsuj/robosuite) registered for path 'capx/third_party/robosuite'
-Submodule 'capx/third_party/sam3' (https://github.com/Max-Fu/sam3.git) registered for path 'capx/third_party/sam3'
-Submodule 'capx/third_party/verl' (https://github.com/Max-Fu/verl.git) registered for path 'capx/third_party/verl'
-Cloning into '/scratch/gilbreth/flermama/capx/cap-x/capx/third_party/LIBERO-PRO'...
-Cloning into '/scratch/gilbreth/flermama/capx/cap-x/capx/third_party/b1k'...
-Cloning into '/scratch/gilbreth/flermama/capx/cap-x/capx/third_party/contact_graspnet_pytorch'...
-Cloning into '/scratch/gilbreth/flermama/capx/cap-x/capx/third_party/curobo'...
-Cloning into '/scratch/gilbreth/flermama/capx/cap-x/capx/third_party/libero_dependencies/robosuite'...
-Cloning into '/scratch/gilbreth/flermama/capx/cap-x/capx/third_party/robosuite'...
-Cloning into '/scratch/gilbreth/flermama/capx/cap-x/capx/third_party/sam3'...
-Cloning into '/scratch/gilbreth/flermama/capx/cap-x/capx/third_party/verl'...
-Submodule path 'capx/third_party/LIBERO-PRO': checked out '5368540790fde9a18584d64105ec5ac16d8926bd'
-Submodule path 'capx/third_party/b1k': checked out '272ec5ca9936453c4a8fd335c4dfba61245e33ca'
-Submodule path 'capx/third_party/contact_graspnet_pytorch': checked out 'da3dcfb2f53e43b186083ee4a9d1e232f73efc98'
-Submodule path 'capx/third_party/curobo': checked out 'd64c4b005459db10c5dd867d8b30a87d5bda9bdb'
-Submodule path 'capx/third_party/libero_dependencies/robosuite': checked out 'a498b087d4bc5a3981e3d27030d09bc537a537f3'
-Submodule path 'capx/third_party/robosuite': checked out '97292732ed909ac3ae116579fb768607034a4dbd'
-Submodule path 'capx/third_party/sam3': checked out '6fe87d64a5beb9084923d7a9e002741178635b09'
-Submodule path 'capx/third_party/verl': checked out 'd5b4ca2712b3048a60745482a74425d687add0bb'
-Downloading cpython-3.10.22-linux-x86_64-gnu (download) (28.0MiB)
- Downloaded cpython-3.10.22-linux-x86_64-gnu (download)
-Installed Python 3.10.22 in 22.73s
- + cpython-3.10.22-linux-x86_64-gnu (python3.10)
-Using CPython 3.10.22
-Creating virtual environment at: .venv
-Activate with: source .venv/bin/activate
-   Updating https://github.com/brentyi/jaxls.git (HEAD)
-    Updated https://github.com/brentyi/jaxls.git (6fe7cf9d56223736b2c0272d080ec7346203c648)
-error: No solution found when resolving dependencies for split (markers: python_full_version == '3.11.*' and platform_machine == 'x86_64' and sys_platform == 'linux'; included: capx[robosuite]; excluded: capx[libero], capx[molmo])
-  cause: Because flash-attn==2.8.3 has no `platform_machine == 'x86_64' and sys_platform == 'linux'`-compatible wheels and only flash-attn==2.8.3 is available, we can conclude that all versions of flash-attn cannot be used.
-         And because capx[verl] depends on flash-attn and your project requires capx[verl], we can conclude that your project's requirements are unsatisfiable.
-
-hint: While the active Python version is 3.10, the resolution failed for other Python versions supported by your project. Consider limiting your project's supported Python versions using `requires-python`.
