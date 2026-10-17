@@ -137,12 +137,8 @@ which then failed on held-out layouts; letting practice continue fixed that.
 
 
 
-# Biomedical tasks: self-evolving agents on two YAM arms (MuJoCo)
+# How to use
 
-A SEAR-style loop (https://sear.bot): an agent writes a policy
-against a small robot API, a hidden judge scores it. This folder holds 
-scenes: two I2RT YAM arms, a source rack with two sample vials, and an
-empty destination rack. Task: move the named vial into the named cell.
 
 ```
 biolab/scene.py     builds the MuJoCo model (arms, racks, vials, cameras)
