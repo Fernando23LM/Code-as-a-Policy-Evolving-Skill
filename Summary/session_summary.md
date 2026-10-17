@@ -132,8 +132,8 @@ which then failed on held-out layouts; letting practice continue fixed that.
 
 ## File Structure
 
-- Code: `/scratch/gilbreth/flermama/biomedical-tasks` (`biolab/`, `cluster/run_evolve.sh`, `tests/`, `README.md`)
-- Runs, with per-round prompts, replies, results and videos: `/scratch/gilbreth/flermama/biolab_runs/<run name>`
+- Code: `/biomedical-tasks` (`biolab/`, `cluster/run_evolve.sh`, `tests/`, `README.md`)
+- Runs, with per-round prompts, replies, results and videos: `/biolab_runs/<run name>`
 - This report and its charts: `reports/` in the code folder
 - Job logs: `evolve_<job id>.log` in the code folder
 
