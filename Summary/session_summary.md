@@ -16,7 +16,7 @@ layouts it never saw.
 |---|---|---|---|
 | `tube_rack` ![](Move_vial_between_racks.gif) | right arm moves a named vial between racks | vial seated upright in the target cell | 40/40 |
 | `snap_cap` ![](Open_snap_cap_tube.gif) | open the lid of a clamped tube past 90 degrees | lid angle, at rest, released | 64/64 |
-| `weig_salt` ![](Pour_salt.gif) | left arm passes a salt vial to a shared rack; right arm pours onto a balance to a target mass (0.8 to 1.6 g, tolerance 0.2 g) | the balance reading itself | 61/64 seeds, 19/20 held-out |
+| `weigh_salt` ![](Pour_salt.gif) | left arm passes a salt vial to a shared rack; right arm pours onto a balance to a target mass (0.8 to 1.6 g, tolerance 0.2 g) | the balance reading itself | 61/64 seeds, 19/20 held-out |
 | `weigh_handover` ![](Move_vial_to_middle.gif) | first half of `weigh_salt`: vial into the shared rack | vial seated, released, no salt spilled | 20/20 |
 | `weigh_pour` ![](Pour_salt_from_middle.gif) | second half: vial starts in the shared rack | the balance reading | 18 to 19/20 |
 
@@ -24,18 +24,18 @@ layouts it never saw.
 ## Workflow
 
 ### 1. Starting a run
-A round contains several rounds. On each round there are several layouts. 
+A round contains several runs. On each round there are several layouts. 
 
 `RUN=sol_seq_pour MODEL=gpt-6-sol TASK=weigh_pour ROUNDS=12 EXTRA="--practice-seeds 100-123 --video" sbatch --qos=standby -N 1 -n 12 --mem=10G --time=00:40:00 cluster/run_evolve.sh`
 
 ### 2. Each round
 For each round:
 
-1. **Build prompt**: cotains task description, API documentation, current best library
+1. **Build prompt**: contains task description, API documentation, current best library
 
 2. **Call the model once**: it returns a skills module, a lessons file and a policy script
 
-3. **Parse reply**: if no policy script is ofund, the round score is zero and is discarded
+3. **Parse reply**: if no policy script is found, the round score is zero and is discarded
 
 4. **Run the code each layout**: each layout is a different random arrangement of the bench, the same set every round. We tested with 12 or 24 layouts per round
 
@@ -132,8 +132,8 @@ which then failed on held-out layouts; letting practice continue fixed that.
 
 ## File Structure
 
-- Code: `/scratch/gilbreth/flermama/biomedical-tasks` (`biolab/`, `cluster/run_evolve.sh`, `tests/`, `README.md`)
-- Runs, with per-round prompts, replies, results and videos: `/scratch/gilbreth/flermama/biolab_runs/<run name>`
+- Code: `/biomedical-tasks` (`biolab/`, `cluster/run_evolve.sh`, `tests/`, `README.md`)
+- Runs, with per-round prompts, replies, results and videos: `/biolab_runs/<run name>`
 - This report and its charts: `reports/` in the code folder
 - Job logs: `evolve_<job id>.log` in the code folder
 
