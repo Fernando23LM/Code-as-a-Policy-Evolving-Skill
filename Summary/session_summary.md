@@ -49,7 +49,7 @@ After the last round, the best library is tested against 20 layouts it has not s
 
 ## Results on the weighing task
 
-![Held-out score of every weighing run](weighing_held_out.png)
+![Held-out score of every weighing run](Final-data.png)
 
 One dot per run; the number on the right is the total over the runs in that
 row. "Joined" rows use Haiku's hand-over library (20/20) followed by the named
