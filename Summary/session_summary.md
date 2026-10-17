@@ -1,7 +1,4 @@
-# Self-evolving robot agents on lab bench tasks: session summary
-
-
-## Does the skill library improve performance?
+# Self-evolving robot agents on lab bench tasks: Does the skill library improve performance?
 
 ## Introduction 
 
