@@ -1,8 +1,8 @@
 # Biomedical tasks: self-evolving agents on two YAM arms (MuJoCo)
 
-Level-1 task for a SEAR-style loop (https://sear.bot): an agent writes a policy
-against a small robot API, a hidden judge scores it. This folder holds the first
-scene only: two I2RT YAM arms, a source rack with two sample vials, and an
+A SEAR-style loop (https://sear.bot): an agent writes a policy
+against a small robot API, a hidden judge scores it. This folder holds 
+scenes: two I2RT YAM arms, a source rack with two sample vials, and an
 empty destination rack. Task: move the named vial into the named cell.
 
 ```
@@ -23,9 +23,9 @@ third_party/        YAM model from MuJoCo Menagerie (see its LICENSE)
 .venv\Scripts\python -m pytest -q tests
 ```
 
-On Linux/Gilbreth: `python -m venv .venv && .venv/bin/pip install -r requirements.txt`.
+On Linux: `python -m venv .venv && .venv/bin/pip install -r requirements.txt`.
 Physics needs no GPU. `env.render()` needs an OpenGL context; on a headless
-node set `MUJOCO_GL=egl` (not yet tried on Gilbreth).
+node set `MUJOCO_GL=egl` 
 
 ## Policy API
 
@@ -50,24 +50,23 @@ class, and importing it registers the simulator, the API and the task.
 biolab/capx_env/sim.py    TubeRackLowLevel: reset/observe/reward, video frames, 3-minute sim budget
 biolab/capx_env/api.py    the functions the model may call; its docstrings are the model's only manual
 biolab/capx_env/task.py   prompt and reference ("oracle") solution
-cluster/install_capx.sh       installs CaP-X + this project under $RCAC_SCRATCH/capx
+cluster/install_capx.sh       installs CaP-X + this project under $capx
 cluster/run_capx_oracle.sh    reference solutions through CaP-X's launcher, no LLM
 cluster/run_capx_llm.sh       an LLM writes the policy (needs an OpenRouter key)
 ```
 
-On Gilbreth, with this folder copied to `$RCAC_SCRATCH/biomedical-tasks`:
+With this folder copied to `biomedical-tasks`:
 
 ```
-cd $RCAC_SCRATCH/biomedical-tasks
+cd biomedical-tasks
 sbatch cluster/install_capx.sh       # once; look for "INSTALL OK" in capx_install_<job>.log
 sbatch cluster/run_capx_oracle.sh    # expect the tube-rack task to pass 10/10
-sbatch cluster/run_capx_llm.sh       # after putting the key in $RCAC_SCRATCH/capx/cap-x/.openrouterkey
+sbatch cluster/run_capx_llm.sh       # after putting the key in $capx/cap-x/.openrouterkey
 ```
 
 Status: on this PC the reference solution passes through CaP-X's own
 `CodeExecutionEnvBase` and config loader with MuJoCo 3.5.0 (the version CaP-X
-locks). The job scripts and the full launcher have not been run yet.
-
+locks).
 Known gaps:
 - CaP-X hands the generated code the raw `env` object, so a model could read
   the judge through `env.sim`. Fine for getting started, not for reported numbers.
@@ -169,7 +168,7 @@ it. `--inherit` still gives a starting library the model may overwrite.
 ```
 RUN=a TASK=weigh_handover ... sbatch -n 12 cluster/run_evolve.sh
 RUN=b TASK=weigh_pour ...     sbatch -n 12 cluster/run_evolve.sh
-RUN=c TASK=weigh_salt EXTRA="... --modules handover=$RCAC_SCRATCH/biolab_runs/a/library pour=$RCAC_SCRATCH/biolab_runs/b/library" \
+RUN=c TASK=weigh_salt EXTRA="... --modules handover=biolab_runs/a/library pour=biolab_runs/b/library" \
     sbatch -n 12 cluster/run_evolve.sh
 ```
 
