@@ -1,6 +1,6 @@
 # Biomedical tasks: self-evolving agents on two YAM arms (MuJoCo)
 
-Level-1 task for a SEAR-style loop (https://sear.bot): an agent writes a policy
+A SEAR-style loop (https://sear.bot): an agent writes a policy
 against a small robot API, a hidden judge scores it. This folder holds 
 scenes: two I2RT YAM arms, a source rack with two sample vials, and an
 empty destination rack. Task: move the named vial into the named cell.
