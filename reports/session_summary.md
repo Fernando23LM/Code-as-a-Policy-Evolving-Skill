@@ -1,7 +1,6 @@
-# Self-evolving robot agents on lab bench tasks: session summary
+# Self-evolving robot agents on lab bench tasks: Does the skill library improve performance?
 
-
-## Summary
+## Introduction 
 
 Inspired by [Self Evolving Agentic Robotics](https://sear.bot) paper, an LLM writes the code that controls two simulated YAM robot arms
 (code-as-policy). It practises in rounds: each round it rewrites a skill
@@ -99,13 +98,11 @@ which then failed on held-out layouts; letting practice continue fixed that.
   perfectly in a few rounds; every weaker model failed on dosing, on the vial
   slipping down the fingers, or on leaving the vial on the pan.
 - **The loop's main contribution is keeping the best attempt.** Weaker models
-  often got worse from one round to the next. Reliable selection needs enough
+  often got worse from one round to the next. Reliable selection needs more
   practice layouts.
 - **Learning in halves isolates the difficulty but cannot beat the harder
   half.** Joined scores tracked the pour score. The model did not use fixed
   modules when given the choice; it rewrote everything.
-- **Hints about the grip made no measurable difference** for `gpt-6-luna`
-  (4/60 with and 4/60 without over three repeats each).
 - **Models need different call settings.** Haiku needed a larger output
   allowance; Qwen answered only with a reasoning-effort setting; `gpt-6-sol`
   worked with defaults.
