@@ -3,6 +3,8 @@
 
 ## Does the skill library improve performance?
 
+## Introduction 
+
 Inspired by [Self Evolving Agentic Robotics](https://sear.bot) paper, an LLM writes the code that controls two simulated YAM robot arms
 (code-as-policy). It practises in rounds: each round it rewrites a skill
 library, notes and a policy script, sees how they did on practice layouts, and
