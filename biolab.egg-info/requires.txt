@@ -1,6 +1,0 @@
-mujoco>=3.5
-numpy
-
-[dev]
-pillow
-pytest
