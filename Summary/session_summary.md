@@ -1,7 +1,7 @@
 # Self-evolving robot agents on lab bench tasks: session summary
 
 
-## Summary
+## Does the skill library improve performance?
 
 Inspired by [Self Evolving Agentic Robotics](https://sear.bot) paper, an LLM writes the code that controls two simulated YAM robot arms
 (code-as-policy). It practises in rounds: each round it rewrites a skill
