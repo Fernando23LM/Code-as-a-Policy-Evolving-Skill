@@ -24,18 +24,18 @@ layouts it never saw.
 ## Workflow
 
 ### 1. Starting a run
-A round contains several rounds. On each round there are several layouts. 
+A round contains several runs. On each round there are several layouts. 
 
 `RUN=sol_seq_pour MODEL=gpt-6-sol TASK=weigh_pour ROUNDS=12 EXTRA="--practice-seeds 100-123 --video" sbatch --qos=standby -N 1 -n 12 --mem=10G --time=00:40:00 cluster/run_evolve.sh`
 
 ### 2. Each round
 For each round:
 
-1. **Build prompt**: cotains task description, API documentation, current best library
+1. **Build prompt**: contains task description, API documentation, current best library
 
 2. **Call the model once**: it returns a skills module, a lessons file and a policy script
 
-3. **Parse reply**: if no policy script is ofund, the round score is zero and is discarded
+3. **Parse reply**: if no policy script is found, the round score is zero and is discarded
 
 4. **Run the code each layout**: each layout is a different random arrangement of the bench, the same set every round. We tested with 12 or 24 layouts per round
 
