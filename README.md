@@ -18,7 +18,7 @@ layouts it never saw.
 | `weigh_salt` ![](/reports/Pour_salt.gif) | left arm passes a salt vial to a shared rack; right arm pours onto a balance to a target mass (0.8 to 1.6 g, tolerance 0.2 g) | The balance reading itself | 61/64 seeds, 19/20 held-out |
 | `weigh_handover` ![](/reports/Move_vial_to_middle.gif) | first half of `weigh_salt`: vial into the shared rack | Vial seated, released, no salt spilled | 20/20 |
 | `weigh_pour` ![](/reports/Pour_salt_from_middle.gif) | second half: vial starts in the shared rack | The balance reading | 18 to 19/20 |
-| `cell_cultue` ![](/reports/cell_culture.gif) | feeding cells, splitting dish A into B and C, and growth to 2.4 million cells against a target of 1.8 million. Another clock simulates time and cell growth | The three dishes have at least 1.8 million attached cells<br>At least 90% of the cells are alive<br>No dish spent more than 6 hours less than 15% of nutrients<br>No dish spent more than 12 hours above 95%<br>Every dish holds at least 1 mL at the end| 18/20 |
+| `cell_culture` ![](/reports/cell_culture.gif) | feeding cells, splitting dish A into B and C, and growth to 2.4 million cells against a target of 1.8 million. Another clock simulates time and cell growth | The three dishes have at least 1.8 million attached cells<br>At least 90% of the cells are alive<br>No dish spent more than 6 hours less than 15% of nutrients<br>No dish spent more than 12 hours above 95%<br>Every dish holds at least 1 mL at the end| 18/20 |
 | `protein_assay` ![](/reports/protein_assay.gif) | find protein concentration in an unknown liquid by making a set of reference liquids with known amounts, measuring their colour with an instrument, and reading the unknown off that colour scale.| Value of 6 references by 10% <br> Sample contains 100 µL <br> Concentration reported within 10% of correct value| 20/20 |
 | `drug_response` | 1. Seed cancer cells into a plate. Add a dilution series of a drug, using the protein assay’s pipetting.<br>2. Incubate for two days, using the culture’s growth model, with the drug slowing growth or killing cells depending on dose.<br>3. Read viability on the plate reader and report the dose that halves growth (the IC50).| The robot passes if its estimate of the drug concentration that halves cell growth is within 50% of the true value <br> Concentration reported within 10% of correct value| 20/20 |
 
@@ -112,7 +112,7 @@ For the cell culture tasks, which involves handling pipetes, the score improved 
 
 ## File Structure
 
-- Code: `/biomedical-tasks` (`biolab/`, `cluster/run_evolve.sh`, `tests/`, `README.md`)
+- Code:  `biolab/`, `cluster/run_evolve.sh`, `tests/`, `README.md`
 - Runs, with per-round prompts, replies, results and videos: `/biolab_runs/<run name>`
 - This report and its charts: `reports/` in the code folder
 - Job logs: `evolve_<job id>.log` in the code folder
