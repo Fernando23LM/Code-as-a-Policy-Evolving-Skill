@@ -14,7 +14,7 @@ layouts it never saw.
 | Task | What the robot must do | Judge | Reference policy |
 |---|---|---|---|
 | `tube_rack` ![](/reports/Move_vial_between_racks.gif) | right arm moves a named vial between racks | Vial seated upright in the target cell | 40/40 |
-| `snap_cap` ![](/reports/Open_snap_cap_tube.gif) | pen the lid of a clamped tube past 90 degrees | Lid angle, at rest, released | 64/64 |
+| `snap_cap` ![](/reports/Open_snap_cap_tube.gif) | Open the lid of a clamped tube past 90 degrees | Lid angle, at rest, released | 64/64 |
 | `weigh_salt` ![](/reports/Pour_salt.gif) | left arm passes a salt vial to a shared rack; right arm pours onto a balance to a target mass (0.8 to 1.6 g, tolerance 0.2 g) | The balance reading itself | 61/64 seeds, 19/20 held-out |
 | `weigh_handover` ![](/reports/Move_vial_to_middle.gif) | first half of `weigh_salt`: vial into the shared rack | Vial seated, released, no salt spilled | 20/20 |
 | `weigh_pour` ![](/reports/Pour_salt_from_middle.gif) | second half: vial starts in the shared rack | The balance reading | 18 to 19/20 |
@@ -74,12 +74,12 @@ held-out after one model call, and fresh attempts without feedback did the same.
 
 ![Protein Assay & Cell Culture tasks](/reports/protein_assay_cell_culture.png)
 For the protein assay gpt-6-luna could wrote a correct script and achieved maximum score quickly.
-For the cell culture tasks, which involves handling pipetes, the score improved if the model could use the protein assay library. This suggests that previous library skills can be used as the starting point for more difficult tasks.<br>
-**Regarding the score drops from round 4 to 5 and 8 to 9:** On round 4 the model ran out of time several layouts, so on round 5 it avoided splitting dishes and failed to reach the required amoun of cells. For round 8, some cells dishes starved while having maximum liquid volume. The important metric is nutrient concentration, not volume. On round 9 model replaced completely the liquid when there was no more nutrient, which takes longer, so the robot ran out of time. On round 10 it found the balance.
+For the cell culture tasks, which involves handling pipettes, the score improved if the model could use the protein assay library. This suggests that previous library skills can be used as the starting point for more difficult tasks.<br>
+**Regarding the score drops from round 4 to 5 and 8 to 9:** On round 4 the model ran out of time several layouts, so on round 5 it avoided splitting dishes and failed to reach the required amount of cells. For round 8, some cells dishes starved while having maximum liquid volume. The important metric is nutrient concentration, not volume. On round 9 model replaced completely the liquid when there was no more nutrient, which takes longer, so the robot ran out of time. On round 10 it found the balance.
 
 
 ![Drug response](/reports/drug-response.png)
-  With 24 layouts per round gpt-6-luna reach the same score as gpt-6-sol. Luna being signicantly cheaper than sol. 
+  With 24 layouts per round gpt-6-luna reached the same score as gpt-6-sol. Luna being signficantly cheaper than sol. 
 
 ## Key findings
 - **Skill library improves with more layouts per round**
