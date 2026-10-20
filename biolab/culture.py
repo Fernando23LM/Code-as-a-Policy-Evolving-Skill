@@ -74,8 +74,9 @@ class CultureEnv(PipetteEnv):
     """Three dishes, medium, trypsin, waste, a microscope and an incubator clock."""
 
     PIPETTE_CAPACITY = 1000.0
+    VIDEO_EVERY = 50         # a frame per simulated second: policies spend 300-600 s of robot time per week
     SIM_BUDGET_S = 900.0     # robot time only: incubation does not count
-    WALL_BUDGET_S = 900
+    WALL_BUDGET_S = 300      # a week takes 10-40 s of compute; a policy that keeps asking for unreachable moves is cut off
 
     def _new_episode(self, rng: np.random.Generator) -> None:
         self.layout = CultureLayout.sample(rng) if self.randomize else CultureLayout()
@@ -239,8 +240,10 @@ class CultureApi(ProteinApi):
         """Get the pipette's tip position and what it holds.
 
         The right gripper holds the pipette straight down from the start, its pads
-        80 mm above the tip. It is a 1 mL pipette: a 45 mm shaft, 4 mm wide,
-        under a 16 mm wide body. If the gripper opens, the pipette falls.
+        about 80 mm above the tip. The pipette can slide in the grip when its tip
+        presses on something, so measure the tip rather than assume it. It is a
+        1 mL pipette: a 45 mm shaft, 4 mm wide, under a 16 mm wide body. If the
+        gripper opens, the pipette falls.
 
         Returns:
             dict with "tip" ((3,) XYZ in metres), "volume_ul" (liquid in the pipette)
@@ -312,12 +315,13 @@ import numpy as np
 
 task = get_task()
 labware = get_labware()
-offset = get_gripper_pose("right")["pos"] - get_pipette()["tip"]
 TRAVEL = 0.06
 CAPACITY = 1.0e6
 VOLUME = 2000.0
 
 def tip_to(point, speed=0.12):
+    # Measure where the tip sits under the pads before every move: it can slide in the grip.
+    offset = get_gripper_pose("right")["pos"] - get_pipette()["tip"]
     return move_to("right", np.asarray(point, dtype=float) + offset, 0.0, speed=speed)
 
 def go_into(well, height):
@@ -337,6 +341,9 @@ def transfer(source, target, amount):
     while amount - moved > 1:
         go_into(source, 0.0005)                         # at the floor: draws down to the last drop
         got = aspirate(min(1000.0, amount - moved))["volume_ul"]
+        if got <= 0:                                    # drew air: the tip stopped short; press to the floor
+            go_into(source, -0.0005)
+            got = aspirate(min(1000.0, amount - moved))["volume_ul"]
         leave(source)
         if got <= 0:
             break

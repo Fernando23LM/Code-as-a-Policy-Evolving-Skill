@@ -28,8 +28,10 @@ class Task:
 
 
 class TubeRackEnv:
-    def __init__(self, seed: int | None = None, randomize: bool = True):
+    def __init__(self, seed: int | None = None, randomize: bool = True, realism=None):
         self.randomize = randomize
+        self.realism = realism   # biolab.realism.Realism: sensing, arm, pipetting and physics errors; None = ideal
+        self._real = None
         self._renderer = None
         self.on_tick = None  # callback for recorders and step budgets
         self.reset(seed)
@@ -41,6 +43,7 @@ class TubeRackEnv:
             self._renderer.close()
             self._renderer = None
         self.model = build_model(self.layout)
+        self._real = self.realism.episode(seed, self.model) if self.realism else None
         self.data = mujoco.MjData(self.model)
         self._ik_data = mujoco.MjData(self.model)
         m = self.model
@@ -126,6 +129,29 @@ class TubeRackEnv:
             "intrinsics": np.array([[f, 0, width / 2], [0, f, height / 2], [0, 0, 1.0]]),
             "pose_mat": pose,
         }
+
+    # ------------------------------------------------------- what a policy sees
+    def observe(self) -> dict:
+        """perceive() as the policy's sensors report it: with errors when realism is on."""
+        obs = self.perceive()
+        if self._real is None:
+            return obs
+        ee = obs.pop("ee", None)
+        out = self._real.observe(obs)
+        if ee is not None:
+            out["ee"] = {a: self._real.reported_pose(a, p) for a, p in ee.items()}
+        return out
+
+    def reported_ee_pose(self, arm: str) -> dict:
+        """ee_pose() as the arm reports it: in its own, slightly miscalibrated frame when realism is on."""
+        pose = self.ee_pose(arm)
+        return pose if self._real is None else self._real.reported_pose(arm, pose)
+
+    def command(self, arm: str, pos, yaw: float = 0.0, tilt: float = 0.0, speed: float = LINEAR_SPEED) -> bool:
+        """move_to as a policy sends it: where the arm really goes carries its calibration error."""
+        if self._real is not None:
+            pos, yaw = self._real.command(arm, pos, yaw)
+        return self.move_to(arm, pos, yaw, tilt, speed)
 
     # ------------------------------------------------------------------ control
     def move_to(self, arm: str, pos, yaw: float = 0.0, tilt: float = 0.0, speed: float = LINEAR_SPEED,

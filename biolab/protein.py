@@ -133,9 +133,13 @@ class PipetteEnv(TubeRackEnv):
         self.move_to("right", np.array(READY), 0.0)
         m, d = self.model, self.data
         adr, dof = m.joint("pipette_free").qposadr[0], m.joint("pipette_free").dofadr[0]
-        d.qpos[adr:adr + 3] = np.array(READY) - [0, 0, GRIP_ABOVE_TIP]
+        d.qpos[adr:adr + 3] = d.site(self._site["right"]).xpos - [0, 0, GRIP_ABOVE_TIP]
         d.qpos[adr + 3:adr + 7] = [1, 0, 0, 0]
         d.qvel[dof:dof + 6] = 0
+        mujoco.mj_forward(m, d)
+        # Close the fingers on the pipette at once, so it does not drop before they meet it.
+        for side, sign in (("left", 1), ("right", -1)):
+            d.qpos[m.joint(f"right/{side}_finger").qposadr[0]] = sign * 0.0078
         mujoco.mj_forward(m, d)
         self.set_gripper("right", 0.0, wait=0.8)
         self._sync_liquids()
@@ -157,7 +161,11 @@ class PipetteEnv(TubeRackEnv):
     def aspirate(self, volume: float) -> dict:
         if not self.holding_pipette():
             return {"volume_ul": 0.0, "note": "the right gripper is not holding the pipette"}
-        result = self.pipette.aspirate(list(self.wells.values()), self.tip(), float(volume))
+        factor = 1.0 if self._real is None else self._real.pipette_factor()     # real pipettes are off by ~1 %
+        self._stroke = factor                # dispensing pushes out what this stroke drew
+        result = self.pipette.aspirate(list(self.wells.values()), self.tip(), float(volume) * factor)
+        if factor != 1.0 and result["volume_ul"] > 0:
+            result = {**result, "volume_ul": round(result["volume_ul"] / factor, 3)}  # the robot only knows what it asked
         self.step(0.4)                       # the plunger takes a moment
         self._sync_liquids()
         return result
@@ -165,7 +173,10 @@ class PipetteEnv(TubeRackEnv):
     def dispense(self, volume: float) -> dict:
         if not self.holding_pipette():
             return {"volume_ul": 0.0, "note": "the right gripper is not holding the pipette"}
-        result = self.pipette.dispense(list(self.wells.values()), self.tip(), float(volume))
+        factor = getattr(self, "_stroke", 1.0)
+        result = self.pipette.dispense(list(self.wells.values()), self.tip(), float(volume) * factor)
+        if factor != 1.0 and result["volume_ul"] > 0:
+            result = {**result, "volume_ul": round(result["volume_ul"] / factor, 3)}
         self.step(0.4)
         self._sync_liquids()
         return result
@@ -299,20 +310,22 @@ class ProteinApi(TubeRackApi):
             the middle of the well's opening at its rim), "floor_z", "depth" and
             "opening" (metres), "area_mm2", and "volume_ul" (liquid in it now).
         """
-        return {k: {**v, "center": v["center"].copy()} for k, v in self.sim.perceive()["labware"].items()}
+        return {k: {**v, "center": v["center"].copy()} for k, v in self.sim.observe()["labware"].items()}
 
     def get_pipette(self) -> dict:
         """Get the pipette's tip position and what it holds.
 
         The right gripper holds the pipette straight down from the start, its pads
-        80 mm above the tip. The pipette is a 45 mm shaft, 4 mm wide, under a
-        16 mm wide body. If the gripper opens, the pipette falls.
+        about 80 mm above the tip. The pipette can slide in the grip when its tip
+        presses on something, so measure the tip rather than assume it. It is a
+        45 mm shaft, 4 mm wide, under a 16 mm wide body. If the gripper opens,
+        the pipette falls.
 
         Returns:
             dict with "tip" ((3,) XYZ in metres), "volume_ul" (liquid in the pipette)
             and "capacity_ul" (200).
         """
-        p = self.sim.perceive()["pipette"]
+        p = self.sim.observe()["pipette"]
         return {"tip": p["tip"].copy(), "volume_ul": p["volume_ul"], "capacity_ul": p["capacity_ul"]}
 
     def move_to(self, arm: str, position: np.ndarray, yaw: float = 0.0, tilt: float = 0.0,
@@ -335,7 +348,7 @@ class ProteinApi(TubeRackApi):
             in which case the arm does not move, or if the arm was blocked on the way,
             for example by the pipette tip pressing on a well's floor or wall.
         """
-        return bool(self.sim.move_to(arm, np.asarray(position, dtype=float), yaw, tilt, speed))
+        return bool(self.sim.command(arm, np.asarray(position, dtype=float), yaw, tilt, speed))
 
     def aspirate(self, volume_ul: float) -> dict:
         """Draw liquid into the pipette from the well its tip is in.
@@ -408,10 +421,11 @@ import numpy as np
 
 task = get_task()
 labware = get_labware()
-offset = get_gripper_pose("right")["pos"] - get_pipette()["tip"]     # pinch point relative to the tip
 TRAVEL = 0.05                                                        # tip height when moving between wells
 
 def tip_to(point, speed=0.1):
+    # Measure where the tip sits under the pads before every move: it can slide in the grip.
+    offset = get_gripper_pose("right")["pos"] - get_pipette()["tip"]
     return move_to("right", np.asarray(point, dtype=float) + offset, 0.0, speed=speed)
 
 def go_into(well, height):
@@ -426,6 +440,9 @@ def leave(well):
 def transfer(source, target, volume):
     go_into(source, 0.001)                     # the tip near the floor stays under the surface
     got = aspirate(volume)["volume_ul"]
+    if got <= 0:                               # drew air: the tip stopped short; press to the floor
+        go_into(source, -0.0005)
+        got = aspirate(volume)["volume_ul"]
     leave(source)
     go_into(target, 0.004)
     dispense(got)

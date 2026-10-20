@@ -54,12 +54,15 @@ def run_episode(env: TubeRackEnv, seed: int, skills: str, policy: str, api: type
     sim_budget = getattr(env, "SIM_BUDGET_S", SIM_BUDGET_S)      # an environment may ask for more
     wall_budget = getattr(env, "WALL_BUDGET_S", WALL_BUDGET_S)
     if recorder is not None:
+        wall_budget *= 2           # rendering is slow when many layouts share one GPU; it must not cut a policy short
+    every = getattr(env, "VIDEO_EVERY", FRAME_EVERY)   # long tasks are filmed more sparsely
+    if recorder is not None:
         recorder.start(seed)
 
     def on_tick() -> None:
         nonlocal ticks
         ticks += 1
-        if recorder is not None and ticks % FRAME_EVERY == 0:
+        if recorder is not None and ticks % every == 0:
             recorder.frame()
         if ticks * CONTROL_DT > sim_budget:
             raise BudgetExceeded(f"simulation budget of {sim_budget:.0f} s exceeded")
@@ -103,7 +106,7 @@ def run_episode(env: TubeRackEnv, seed: int, skills: str, policy: str, api: type
         "seed": seed,
         "task": env.task.instruction,
         "success": bool(verdict["success"]),
-        "checks": verdict["checks"],
+        "checks": {name: bool(ok) for name, ok in verdict["checks"].items()},   # numpy bools do not go to JSON
         "progress": float(verdict.get("progress", verdict["success"])),   # partial credit where the judge gives it
         "note": verdict.get("note", ""),
         "error": error,

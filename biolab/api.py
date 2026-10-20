@@ -51,7 +51,7 @@ class TubeRackApi:
             bottom: (3,) XYZ in metres of the centre of the vial's bottom face, world frame.
             top: (3,) XYZ in metres of the centre of the vial's cap.
         """
-        state = self.sim.perceive()["tubes"][tube]
+        state = self.sim.observe()["tubes"][tube]
         return state["bottom"].copy(), state["top"].copy()
 
     def get_rack(self, rack: str) -> dict:
@@ -70,7 +70,7 @@ class TubeRackApi:
               "cells": dict mapping (ix, iy) to (3,) XYZ in metres of the point where
                 a seated vial's bottom centre rests.
         """
-        state = self.sim.perceive()["racks"][rack]
+        state = self.sim.observe()["racks"][rack]
         return {"yaw": float(state["yaw"]), "cells": {c: p.copy() for c, p in state["cells"].items()}}
 
     def get_gripper_pose(self, arm: str) -> dict:
@@ -83,7 +83,7 @@ class TubeRackApi:
             dict with keys "pos" ((3,) XYZ in metres of the pinch point between the
             finger pads), "yaw" (radians) and "opening" (metres between the pads).
         """
-        return self.sim.ee_pose(arm)
+        return self.sim.reported_ee_pose(arm)
 
     def move_to(self, arm: str, position: np.ndarray, yaw: float = 0.0, tilt: float = 0.0,
                 speed: float = 0.15) -> bool:
@@ -112,7 +112,7 @@ class TubeRackApi:
             arm was blocked on the way, for example by a vial resting on a rack
             wall. Continuing after a False usually drags or drops what is held.
         """
-        return bool(self.sim.move_to(arm, np.asarray(position, dtype=float), yaw, tilt, speed))
+        return bool(self.sim.command(arm, np.asarray(position, dtype=float), yaw, tilt, speed))
 
     def set_gripper(self, arm: str, opening: float) -> None:
         """Open or close a gripper and wait for it to settle.
@@ -224,7 +224,7 @@ class SnapCapApi(TubeRackApi):
                 mid-thickness) as it is now.
               "angle": float, how far the lid is open in radians, 0 when shut.
         """
-        state = self.sim.perceive()["tubes"][tube]
+        state = self.sim.observe()["tubes"][tube]
         return {"hinge": state["hinge"].copy(), "front": state["front"].copy(),
                 "center": state["cap_center"].copy(), "angle": float(state["angle"])}
 
@@ -337,7 +337,7 @@ class WeighApi(TubeRackApi):
             bottom: (3,) XYZ in metres of the centre of the vial's bottom face, world frame.
             top: (3,) XYZ in metres of the centre of the vial's open rim.
         """
-        state = self.sim.perceive()["tubes"][tube]
+        state = self.sim.observe()["tubes"][tube]
         return state["bottom"].copy(), state["top"].copy()
 
     def get_rack(self, rack: str) -> dict:
@@ -357,7 +357,7 @@ class WeighApi(TubeRackApi):
               "cells": dict mapping (ix, iy) to (3,) XYZ in metres of the point where
                 a seated vial's bottom centre rests.
         """
-        state = self.sim.perceive()["racks"][rack]
+        state = self.sim.observe()["racks"][rack]
         return {"yaw": float(state["yaw"]), "cells": {c: p.copy() for c, p in state["cells"].items()}}
 
     def get_balance(self) -> dict:
@@ -376,7 +376,7 @@ class WeighApi(TubeRackApi):
               "boat_center": (3,) XYZ in metres of the centre of the boat's floor.
               "boat_size": float, inner side length of the boat in metres (0.064).
         """
-        state = self.sim.perceive()["balance"]
+        state = self.sim.observe()["balance"]
         return {"reading_g": float(state["reading_g"]), "boat_center": state["boat_center"].copy(),
                 "boat_size": float(state["boat_size"])}
 
@@ -412,7 +412,7 @@ class WeighApi(TubeRackApi):
             unreachable, in which case the arm DOES NOT MOVE AT ALL, or if the
             arm was blocked on the way.
         """
-        return bool(self.sim.move_to(arm, np.asarray(position, dtype=float), yaw, tilt, speed))
+        return bool(self.sim.command(arm, np.asarray(position, dtype=float), yaw, tilt, speed))
 
     def set_gripper(self, arm: str, opening: float) -> None:
         """Open or close a gripper and wait for it to settle.

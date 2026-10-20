@@ -54,3 +54,20 @@ TASKS["protein_assay"] = TaskSpec(ProteinEnv, ProteinApi, PROTEIN_PROMPT, PROTEI
 from .culture import CULTURE_PROMPT, CULTURE_REFERENCE_POLICY, CultureApi, CultureEnv  # noqa: E402
 
 TASKS["cell_culture"] = TaskSpec(CultureEnv, CultureApi, CULTURE_PROMPT, CULTURE_REFERENCE_POLICY, "bench")
+
+# Drug dose-response (biolab.drug): seed cells, treat with a dilution series, read, report the IC50.
+from .drug import DRUG_PROMPT, DRUG_REFERENCE_POLICY, DrugApi, DrugEnv  # noqa: E402
+
+TASKS["drug_response"] = TaskSpec(DrugEnv, DrugApi, DRUG_PROMPT, DRUG_REFERENCE_POLICY, "bench")
+
+# Realistic variants: every task again, with the sensing, arm, pipetting and physics errors of biolab.realism.
+import functools  # noqa: E402
+
+from .realism import Realism  # noqa: E402
+
+REALITY_NOTE = """
+This bench behaves like real hardware. Positions reported by the cameras are off by a millimetre or two (a fixed error for the session plus jitter on every reading), the arm lands about a millimetre away from where it is sent and reports its own position in its own frame, pipetted volumes are off by about 1 percent, readings are noisy, and friction, masses and motor strength differ a little between sessions."""
+
+for _name, _spec in list(TASKS.items()):
+    TASKS[f"{_name}_real"] = TaskSpec(functools.partial(_spec.env, realism=Realism()), _spec.api,
+                                      _spec.prompt + REALITY_NOTE, _spec.reference, _spec.camera)
